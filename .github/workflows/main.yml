@@ -1,9 +1,19 @@
 name: CI/CD Pipeline
 on:
-  pull_request:
+  push:
     branches: [ master ]
 
 jobs:
+  continous-integration:
+    runs-on: ubuntu-latest
+      steps:
+  - uses: actions/checkout@v1.0
+    name: Check out code
+
+  - uses: mr-smithers-excellent/docker-build-push@v3
+    name: Build Docker image
+    with:
+      dockerfile: Dockerfile
   continuous-deployment:
     runs-on: ubuntu-latest
 
@@ -23,4 +33,6 @@ jobs:
             --application-name Nodejs-autopump \
             --deployment-group-name NodejsAutopump-scaled \
             --deployment-config-name CodeDeployDefault.OneAtATime \
+            --file-exists-behavior OVERWRITE \
+            --auto-rollback-configuration enabled=true,events=DEPLOYMENT_FAILURE \
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
