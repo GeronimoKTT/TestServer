@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: .
+    destination: /home/ubuntu/Jerry/TestServer/
+hooks:
+  ApplicationStop:
+   - location: app-start.sh
+     timeout: 300
+     runas: root
+  ApplicationStart:
+   - location: app-start.sh
+     timeout: 300
+     runas: root
