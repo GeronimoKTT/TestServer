@@ -5,7 +5,7 @@ files:
     destination: /home/ubuntu/Jerry/TestServer/
 hooks:
   ApplicationStop:
-   - location: scripts/app-start.sh
+   - location: scripts/app-stop.sh
      timeout: 300
      runas: root
   ApplicationStart:
