@@ -6,14 +6,15 @@ on:
 jobs:
   continous-integration:
     runs-on: ubuntu-latest
-      steps:
-  - uses: actions/checkout@v1.0
-    name: Check out code
+    
+    steps:
+        - uses: actions/checkout@v1.0
+          name: Check out code
 
-  - uses: mr-smithers-excellent/docker-build-push@v3
-    name: Build Docker image
-    with:
-      dockerfile: Dockerfile
+        - uses: mr-smithers-excellent/docker-build-push@v3
+          name: Build Docker image
+          with:
+            dockerfile: Dockerfile
   continuous-deployment:
     runs-on: ubuntu-latest
 
