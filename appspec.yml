@@ -1,8 +1,9 @@
 version: 0.0
 os: linux
 files:
-  - source: .
+  - source: /
     destination: /home/ubuntu/Jerry/TestServer/
+file_exists_behavior: OVERWRITE
 hooks:
   ApplicationStop:
    - location: scripts/app-stop.sh
