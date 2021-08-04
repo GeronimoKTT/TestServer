@@ -4,7 +4,7 @@ const port = 3000;
 
 app.get("/", (req, res) => {
   res.send(
-    "<strong>AUTO-SCALING APP AWS</strong><br><br>Small but region proof user!<br>Hello World!"
+    "<strong>AUTO-SCALING APP AWS</strong><br><br>Small but region proof user!<br>Hello World!<br><br>Version 1"
   );
 });
 
